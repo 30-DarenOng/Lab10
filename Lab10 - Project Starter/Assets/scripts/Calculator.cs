@@ -39,6 +39,8 @@ public class Calculator : MonoBehaviour {
 				case "/":
 				case "*":
 				case "=":
+			case "MathSqrt":
+			case "Power":
 				Calculate(s);
 				break;
 			case "ce":
@@ -86,7 +88,11 @@ public class Calculator : MonoBehaviour {
 			_op = s;
 			_input.text = "0";
 		}
+		
+
+	
 	}
+	
 
 	//Return the result of an operation between 2 floats
 	public static float CalculatePair(float x, float y, string op) {
@@ -105,10 +111,17 @@ public class Calculator : MonoBehaviour {
 			case "/":
 				result = x / y;
 				break;
+			case "MathSqrt":
+				result = Mathf.Sqrt(x);
+				break;
+			case "Power":
+				result = Mathf.Pow(x,y);
+				break;
 		}
 
 		return result;
 	}
+
 
 	//Add character input to input text string
 	private void AddCharacter(string s){
